@@ -21,7 +21,19 @@ mystery_function(1, 2)
 
 2.  In your Notebook
 Answer the following questions
-What happens when your run this code? How do you know what the result was?
+What happens when your run this code? How do you know what the result was
+Keeping the function the same, rewrite the code to print out the value that the function returns
 
-Keeping the function the same, rewrite the code to print out the value that the function returns.
+originally does not print anything because it "returns" it and not print the value
+
 '''
+import random
+def mystery_function(x, y):
+    random_number = random.randint(0,1)
+    if random_number > 0:
+        z = x + y
+    else:
+        z = x * y
+    print(z)
+
+mystery_function(1, 2)
