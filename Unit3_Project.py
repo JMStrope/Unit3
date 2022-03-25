@@ -18,16 +18,31 @@ def Travel():
     global current_day
     miles_traveled = random.randint(30, 60)
     miles_to_go -= miles_traveled
-    current_day += random.randint(3, 7) 
+    days_this_travel = random.randint(3, 7) 
     print(f"You Traveled {miles_traveled} miles")
+
+    add_day(days_this_travel)
 
 def Status():
     global food
+    print()
     print(f"You have {miles_to_go} miles left to travel")
     print()
     print(f"You have {food} pounds of food left" )
     print()
-    print(f"It is [MONTHS[current_month]] {current_day}")
+    print(f"It is {MONTHS[current_month]} {current_day}")
+    print()
+def add_day(days):
+    global current_day, current_month
+    current_day += days
+    if MONTHS[current_month] in MONTHS_WITH_30_DAYS:
+        if current_day > 30:
+            current_day -= 30 
+            current_month += 1
+    else:
+        if current_day > 31:
+            current_day -= 31
+            current_month += 1
 
 def Help():
     print("The possible inputs are: Hunting, Traveling, Resting, Player Status, and Quit ")
@@ -67,6 +82,7 @@ while True:
 
     elif Player_Action == "Help":
         Help()
+
 
     
     
